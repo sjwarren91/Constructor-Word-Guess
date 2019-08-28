@@ -18,3 +18,5 @@ Letter.prototype.charCheck = function(char){
         this.check = false;
     }
 }
+
+module.exports = Letter;

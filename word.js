@@ -7,8 +7,6 @@ function Word(word){
         var letter = new Letter(element);
         this.array.push(letter);
     });
-
-    console.log(this.array);
 }
 
 Word.prototype.printWord = function(){

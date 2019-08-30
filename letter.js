@@ -1,6 +1,6 @@
-function Letter(letter, check=false){
+function Letter(letter){
     this.letter = letter;
-    this.check = check;
+    this.check = false;
 }
 
 Letter.prototype.guessCheck = function(){

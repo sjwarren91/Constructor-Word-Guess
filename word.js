@@ -20,9 +20,11 @@ Word.prototype.printWord = function(){
 }
 
 Word.prototype.guessChar = function(char) {
-
+    
     this.array.forEach(letter => {
-        letter.charCheck(char);
+        if(letter.check === false){
+            letter.charCheck(char);
+        }
     });
 
 }

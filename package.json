@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/sjwarren91/Constructor-Word-Guess#readme",
   "dependencies": {
+    "chalk": "^2.4.2",
     "inquirer": "^7.0.0"
   }
 }

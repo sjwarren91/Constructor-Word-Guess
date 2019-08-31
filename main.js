@@ -1,7 +1,8 @@
 var Word = require("./word.js");
 var inquirer = require("inquirer");
+var chalk = require('chalk');
 
-var wordArray = ["Hello", "World"];
+var wordArray = require("./wordArray.js");
 var wordToGuess;
 var result;
 var attempt;
@@ -41,9 +42,9 @@ function loop() {
     
                 if (before === wordToGuess.printWord()) {
                     attempt--;
-                    console.log("Incorrect! You have " + attempt + " tries left!");
+                    console.log(chalk.red("Incorrect!") + "\nYou have " + attempt + " tries left!");
                 } else {
-                    console.log("Correct!");
+                    console.log(chalk.green("Correct!"));
                 }
 
                 
@@ -51,12 +52,12 @@ function loop() {
                 if(endGameCheck(wordToGuess)){
                     startAgain();
                 } else {
-                    console.log(wordToGuess.printWord());
+                    console.log("\n" + wordToGuess.printWord());
                     loop();
                 }
             } else {
                 console.log("You've already tried that..");
-                console.log(wordToGuess.printWord());
+                console.log("\n" + wordToGuess.printWord());
                 loop();
             }
         });
@@ -64,8 +65,8 @@ function loop() {
 
 function endGameCheck(word) {
     if(attempt === 0){
-        console.log("You Lose!");
-        console.log("The answer was: " + result);
+        console.log(chalk.red.bold("You Lose!"));
+        console.log("The answer was: " + result + "\n");
         return true;
     } else {
         var endCount = 0;
@@ -76,8 +77,8 @@ function endGameCheck(word) {
         });
 
         if (endCount === word.array.length) {
-            console.log("You Win!");
-            console.log("The answer is: " + result);
+            console.log(chalk.green.bold("You Win!"));
+            console.log("The answer is: " + result + "\n");
             return true;
         } else {
             return false;
